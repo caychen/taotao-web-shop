@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler/>
+	
+	<context:property-placeholder location="classpath:resource/*.properties"/>
+	
+	<context:component-scan base-package="com.taotao.portal.controller"></context:component-scan>
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+	
+	<!-- 引用dubbo服务 -->
+	<!-- 每个工程的工程名不一样 -->
+	<dubbo:application name="taotao-portal-web"/>
+	<dubbo:registry protocol="zookeeper" address="${dubbo.address}"></dubbo:registry>
+	<dubbo:reference interface="com.taotao.content.service.IContentService" id="contentService"></dubbo:reference>
+</beans>

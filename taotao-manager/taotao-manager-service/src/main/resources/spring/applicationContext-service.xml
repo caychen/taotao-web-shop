@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<context:component-scan base-package="com.taotao.service"></context:component-scan>
+
+	<!-- 使用dubbo发布服务 -->
+	<!-- 提供方应用信息，用于计算依赖关系 -->	
+	<dubbo:application name="taotao-manager"/>
+	<!-- 注册中心的地址 -->
+	<dubbo:registry protocol="zookeeper" address="${dubbo.address}"></dubbo:registry>
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
+	<!-- 声明需要暴露的服务接口 -->
+	<!-- <dubbo:service interface="com.taotao.service.IItemService" ref="itemServiceImpl" timeout="300000"></dubbo:service> -->
+	<!-- dubbo默认请求是1秒，如果在maven的debug时超时了3次，就会报超时异常，所以可以配置timeout属性 -->
+	<dubbo:service interface="com.taotao.service.IItemService" ref="itemServiceImpl" timeout="30000"></dubbo:service>
+	<dubbo:service interface="com.taotao.service.IItemCategoryService" ref="itemCategoryServiceImpl" timeout="30000"></dubbo:service>
+</beans>

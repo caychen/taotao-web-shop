@@ -1,0 +1,8 @@
+﻿搭建Redis集群：
+	1、复制一份redis文件夹下的bin文件夹到一个集群目录下，修改为redis01；
+	2、修改redis.conf(Linux)或者redis.windows.conf(windows)文件；
+	3、将port改为7001，并将cluster-enabled的注释打开；
+	4、将该redis01复制5份，依次重命名为redis02~redis06，并将每个conf里的port改为7002~7006；
+	5、依次启动这redis01~redis06，或者使用批处理启动多个redis；
+	6、Redis集群需要使用Ruby环境，所以需要提前安装Ruby；
+	7、安装完之后在src目录下执行如下命令：./redis-trib.rb create --replicas 1 127.0.0.1:7002 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 127.0.0.1:7006

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>测试页面</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<table border="1" cellspacing="0">
+		<thead>
+			<tr>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>地址</th>
+			</tr>
+		</thead>
+		<tbody>
+						<tr>
+				<td>1</td>
+				<td>小米1</td>
+				<td>11</td>
+				<td>上海市11</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>小米2</td>
+				<td>12</td>
+				<td>上海市12</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>小米3</td>
+				<td>13</td>
+				<td>上海市13</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>小米4</td>
+				<td>14</td>
+				<td>上海市14</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>小米5</td>
+				<td>15</td>
+				<td>上海市15</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>小米6</td>
+				<td>16</td>
+				<td>上海市16</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>小米7</td>
+				<td>17</td>
+				<td>上海市17</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>小米8</td>
+				<td>18</td>
+				<td>上海市18</td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>小米9</td>
+				<td>19</td>
+				<td>上海市19</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>小米10</td>
+				<td>20</td>
+				<td>上海市20</td>
+			</tr>
+		</tbody>
+
+	</table>
+</body>
+</html>
